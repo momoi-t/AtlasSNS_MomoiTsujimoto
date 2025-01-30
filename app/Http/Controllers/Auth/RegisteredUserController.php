@@ -28,11 +28,18 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+
+    //バリデーション
+    //UserName　　入力必須・2文字以上,12文字以内
+    //MailAdress　入力必須・5文字以上,40文字以内・登録済み使用不可・メールアドレスの形式
+    //Password	　入力必須・英数字のみ・8文字以上,20文字以内
+    //PasswordConfirm	Password入力欄と一致しているか
+
     public function store(Request $request): RedirectResponse
     {
         User::create([
             'username' => $request->username,
-            'email' => $request->email,
+            'mail' => $request->mail,
             'password' => Hash::make($request->password),
         ]);
 
