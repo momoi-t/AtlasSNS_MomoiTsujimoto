@@ -345,7 +345,7 @@ th {
 
 .img-thumbnail,
 body {
-  background-color: #f5f8fa
+  /*background-color: #f5f8fa*/
 }
 
 @font-face {
@@ -1554,7 +1554,7 @@ h1,
 h2,
 h3 {
   margin-top: 22px;
-  margin-bottom: 11px
+  /*margin-bottom: 11px*/
 }
 
 .h1 .small,
@@ -1628,7 +1628,7 @@ h6 {
 }
 
 p {
-  margin: 0 0 11px
+  margin: 0 0 0px
 }
 
 .lead {
@@ -4943,7 +4943,7 @@ tbody.collapse.in {
 .nav-tabs>li.active>a:focus,
 .nav-tabs>li.active>a:hover {
   color: #555;
-  background-color: #f5f8fa;
+  /*background-color: #f5f8fa;*/
   border: 1px solid #ddd;
   border-bottom-color: transparent;
   cursor: default
@@ -6068,7 +6068,7 @@ a.badge:hover {
 .thumbnail {
   padding: 4px;
   line-height: 1.6;
-  background-color: #f5f8fa;
+  /*background-color: #f5f8fa;*/
   border: 1px solid #ddd;
   border-radius: 4px;
   transition: border .2s ease-in-out

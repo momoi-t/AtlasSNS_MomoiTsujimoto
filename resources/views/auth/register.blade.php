@@ -2,13 +2,23 @@
     <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/register']) !!}
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <h2>新規ユーザー登録</h2>
 
 {{ Form::label('ユーザー名') }}
 {{ Form::text('username',null,['class' => 'input']) }}
 
 {{ Form::label('メールアドレス') }}
-{{ Form::email('mail',null,['class' => 'input']) }}
+{{ Form::email('email',null,['class' => 'input']) }}
 
 {{ Form::label('パスワード') }}
 {{ Form::text('password',null,['class' => 'input']) }}

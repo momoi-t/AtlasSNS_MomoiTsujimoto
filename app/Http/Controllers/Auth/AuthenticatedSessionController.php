@@ -25,11 +25,22 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        //ユーザー認証
         $request->authenticate();
-
+        //セッションを再生成
         $request->session()->regenerate();
 
-        return redirect()->intended('top');
+
+        //ログイン後のリダイレクト先
+        return redirect()->intended(RouteServiceProvider::HOME);
+    }
+
+    public function destroy(Request $request)
+    {
+        Auth::logout();  // ログアウトさせる
+        $request->session()->invalidate();  // セッションを無効化
+        $request->session()->regenerateToken();  // CSRFトークンを再生成
+        return redirect('/login');  // ログアウト後のリダイレクト先
     }
 
 }

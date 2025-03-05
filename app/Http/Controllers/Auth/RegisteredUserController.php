@@ -29,19 +29,24 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
 
-    //バリデーション
-    //UserName　　入力必須・2文字以上,12文字以内
-    //MailAdress　入力必須・5文字以上,40文字以内・登録済み使用不可・メールアドレスの形式
-    //Password	　入力必須・英数字のみ・8文字以上,20文字以内
-    //PasswordConfirm	Password入力欄と一致しているか
-
     public function store(Request $request): RedirectResponse
     {
+        //バリデーション定義
+        $request->validate([
+        'username' => 'required|min:2|max:12',
+        'email' => 'required|email|min:5|max:40|unique:users,email',
+        'password' => 'required|alpha_num|min:8|max:20',
+        'password_confirmation' => 'required|same:password',
+        ]);
+        //通過したら登録する
         User::create([
             'username' => $request->username,
-            'mail' => $request->mail,
+            'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        // 登録したユーザー名をセッションに保存
+        session(['username' => $request->username]);
 
         return redirect('added');
     }
@@ -50,4 +55,11 @@ class RegisteredUserController extends Controller
     {
         return view('auth.added');
     }
+
+    //表示した後にセッションデータを削除
+    public function registerComplete()
+    {
+    session()->forget('username');
+    return view('register-complete');
+}
 }
