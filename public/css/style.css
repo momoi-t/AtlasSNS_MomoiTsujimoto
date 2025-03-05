@@ -1,22 +1,218 @@
 @charset "utf-8";
-html{
+
+html {}
+
+body {}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    /* Space between the left and right content */
+    align-items: center;
+    /* Center the items vertically */
+    padding: 20px;
+    /* Optional: Adjust the padding as needed */
+    height: 90px;
 }
-body{
-}
+
 /* header */
-header{
-    background:#186AC9;
+header {
+    background: #186AC9;
+    height: 90px;
+}
+
+h1 a img {
+    display: block;
+    /* Removes any extra space around the image */
+    height: 35px;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    /* アイコンとテキストを縦方向中央揃え */
+    gap: 15px;
+    /* ユーザー名とアイコンの間隔を調整 */
+    text-align: right;
+    /* Align the user menu and accordion on the right */
+    /*text-decoration: none;*/
+    color: #ffffff;
+    padding: 0.8em;
+    position: relative;
+}
+
+.user-icon {
+    width: auto;
+    height: 48px;
+    /* アイコンのサイズ */
+    border-radius: 50%;
+    /* 丸くする */
+    object-fit: cover;
+    /* 画像をトリミングしてフィット */
+}
+
+/* accordion menu */
+.accordion-toggle {
+    cursor: pointer;
+    font-size: 22px;
+    color: #ffffff;
+    /*font-weight: bold;*/
+    /* Button color */
+    display: inline-flex;
+    align-items: center;
+}
+
+.accordion-content {
+    display: block;
+    /* 初期状態でブロック要素として配置 */
+    visibility: hidden;
+    /* 見えない状態にする */
+    opacity: 0;
+    /* 完全に透明にする */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    text-align: center;
+    background-color: #ffffff;
+    list-style: none;
+    margin: 0;
+    position: absolute;
+    /* Position the dropdown below the toggle button */
+    width: auto;
+    /*min-width: 150px;*/
+    /* 必要に応じて調整 */
+    right: 0;
+    /* 右端に寄せる */
+    left: auto;
+    /* Set the width of the dropdown */
+    top: 100%;
+    /* Position it just below the toggle button */
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /*border: 0.5px solid #03297e;*/
+}
+
+.accordion-content.active {
+    visibility: visible;
+    /* 表示する */
+    opacity: 1;
+    /* 不透明にする */
+}
+
+.accordion-item {
+    position: relative;
+    /* Ensure the toggle button can position the dropdown below it */
+}
+
+.accordion-content a {
+    color: #848484;
+    /* 文字色 */
+    font-size: 24px;
+    /* 文字サイズ */
+    padding: 20px 0;
+    display: block;
+    text-decoration: none;
+    /* リンクの下線を削除 */
+    border: 1px solid #ddd;
+    /* 下部にボーダーを追加 */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /*　スムーズな変化 */
+}
+
+.accordion-content a:hover {
+    background-color: #03297e;
+    color: #ffffff;
+    /* ホバー時の文字色を変更（オプション） */
+}
+
+.toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin: 20px;
+}
+
+.accordion-toggle.active .toggle-icon {
+    transform: rotate(180deg);
+    /* 180度回転 */
+}
+
+.accordion-item {
+    position: relative;
+    /* Ensure the toggle button can position the dropdown below it */
+}
+
+.accordion-item.active .toggle-icon {
+    transform: rotate(90deg);
+    /* アコーディオンが開いた時、右に90度回転 */
+}
+
+.accordion-item .toggle-icon {
+    transform: rotate(0deg);
+    /* 初期状態はそのまま */
+}
+
+.accordion-content a:last-child {
+    border-bottom: none;
+}
+
+
+/* 投稿フォームのスタイル */
+form {
+    width: 100%;
+    /* 親要素に対して幅を100%に設定 */
+    display: flex;
+    /* フォーム内の要素を横並びにする */
+    /*align-items: flex-start;*/
+    /* 左寄せ */
+    gap: 10px;
+    margin: 30px auto;
+    /* 中央寄せ */
+    padding: 0px 200px 0px 100px;
+    border: none;
+}
+
+form div:last-child {
+    align-self: flex-end;
+    /* 最後の div（ボタン）のみ右寄せ */
+}
+
+textarea {
+    flex: 1;
+    /* 残りのスペースを埋める */
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    resize: none;
+}
+
+textarea::placeholder {
+    color: #e0e0e0;
+    font-size: 20px;
+}
+
+/* 送信ボタン */
+form button {
+    background: none;
+    border: none;
+    margin-left: 10px;
+    /* テキストエリアとの間隔を調整 */
+    cursor: pointer;
+}
+
+form button img {
+    width: auto;
+    height: 45px;
 }
 
 /* main content */
-#row{
+#row {
     display: flex;
     flex-flow: row wrap;
 }
-#container{
+
+#container {
     flex: 0 0 80%;
 }
-#side-bar{
+
+#side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
