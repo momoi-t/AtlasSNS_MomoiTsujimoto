@@ -27,6 +27,10 @@ Route::middleware('auth')->group(function (){
   Route::get('top',[PostsController::class,'index'])->name('top');
   //投稿を保存
   Route::post('posts', [PostsController::class,'store'])->name('posts.store');
+  //投稿を編集
+  Route::get('/posts/{post}/edit', [PostsController::class,'edit'])->name('posts.edit');
+  //投稿を削除
+  Route::get('/posts/{post}', [PostsController::class,'destroy'])->name('posts.destroy');
   //プロフィール
   Route::get('profile',[ProfileController::class,'profile'])->name('profile');
   //検索

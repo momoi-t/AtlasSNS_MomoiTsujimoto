@@ -47,5 +47,33 @@ class PostsController extends Controller
         return redirect()->route('top');
     }
 
+    //投稿を編集
+    public function edit(Post $post)
+    {
+
+        //認可チェック（ログインユーザー以外が編集できないようにする）
+        if (Auth::id() !== $post->user_id) {
+            return redirect()->route('posts.index')->with('error', '編集権限がありません。');
+    }
+
+    //編集後にリダイレクト
+    return view('posts.edit', compact('post'));
+}
+
+    //投稿を削除
+    public function destroy(Post $post)
+    {
+
+        // 認可チェック（ログインユーザー以外が削除できないようにする）
+        if (Auth::id() !== $post->user_id) {
+            return redirect()->route('posts.index')->with('error', '削除権限がありません。');
+    }
+
+    // 投稿を削除
+    $post->delete();
+
+    return redirect()->route('posts.index')->with('success', '投稿を削除しました。');
+}
+
 
 }
