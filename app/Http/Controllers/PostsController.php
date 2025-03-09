@@ -44,21 +44,40 @@ class PostsController extends Controller
         ]);
 
         // 投稿後にリダイレクト
-        return redirect()->route('top');
+        return redirect()->route('posts.index');
     }
 
-    //投稿を編集
-    public function edit(Post $post)
-    {
+    //投稿編集
+        //①データ取得
+        public function edit(Post $post)
+        {
+        //認可チェック
+        if (Auth::id() !== $post->user_id) {
+            return response()->json(['error' => '編集権限がありません。'], 403);
+        }
+    //JSONで返す（モーダル用)
+    return response()->json($post);
 
-        //認可チェック（ログインユーザー以外が編集できないようにする）
+    }
+    //②編集処理
+    public function update(Request $request, Post $post)
+    {
         if (Auth::id() !== $post->user_id) {
             return redirect()->route('posts.index')->with('error', '編集権限がありません。');
-    }
+        }
+        $validated = $request->validate([
+            'post' => 'required|string|min:1|max:150',
+        ], [
+            'post.required' => '投稿内容は必須です。',
+            'post.min' => '1文字以上入力してください。',
+            'post.max' => '150文字以内で入力してください。',
+        ]);
 
-    //編集後にリダイレクト
-    return view('posts.edit', compact('post'));
-}
+        // 投稿を更新
+        $post->update(['post' => $validated['post']]);
+
+        return redirect()->route('posts.index')->with('success', '投稿を編集しました。');
+    }
 
     //投稿を削除
     public function destroy(Post $post)
@@ -73,7 +92,7 @@ class PostsController extends Controller
     $post->delete();
 
     return redirect()->route('posts.index')->with('success', '投稿を削除しました。');
-}
+    }
 
 
 }

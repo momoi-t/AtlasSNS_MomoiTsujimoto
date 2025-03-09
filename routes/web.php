@@ -25,12 +25,14 @@ require __DIR__ . '/auth.php';
 Route::middleware('auth')->group(function (){
   //トップページ
   Route::get('top',[PostsController::class,'index'])->name('top');
+  Route::get('/posts', [PostsController::class, 'index'])->name('posts.index');
   //投稿を保存
   Route::post('posts', [PostsController::class,'store'])->name('posts.store');
   //投稿を編集
   Route::get('/posts/{post}/edit', [PostsController::class,'edit'])->name('posts.edit');
+  Route::put('/posts/{post}', [PostsController::class, 'update'])->name('posts.update');
   //投稿を削除
-  Route::get('/posts/{post}', [PostsController::class,'destroy'])->name('posts.destroy');
+  Route::delete('/posts/{post}', [PostsController::class,'destroy'])->name('posts.destroy');
   //プロフィール
   Route::get('profile',[ProfileController::class,'profile'])->name('profile');
   //検索
