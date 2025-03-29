@@ -1,7 +1,7 @@
 <div id="head" class="header-container">
     <h1>
         <a href="{{ route('top') }}">
-            <img src="images/atlas.png" alt="Atlas Logo">
+            <img src="{{ asset('images/atlas.png') }}" alt="Atlas Logo">
          </a>
     </h1>
     <div class="user-menu">
@@ -11,7 +11,7 @@
             @endif
             <ul class="accordion-content">
                 <li><a href="{{ route('top') }}">HOME</a></li>
-                <li><a href="{{ route('profile') }}">プロフィール編集</a></li>
+                <li><a href="{{ route('profile.edit') }}">プロフィール編集</a></li>
                 <li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf

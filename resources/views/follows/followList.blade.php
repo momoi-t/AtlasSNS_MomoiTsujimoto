@@ -10,7 +10,9 @@
     <!-- 自分がフォローしているユーザーのアイコン一覧 -->
     <div class="icon-list">
       @foreach ($followingUsers as $followingUser)
+        <a href="{{ route('profile', ['user' => $followingUser->id]) }}">
         <img src="{{ asset('images/' . $followingUser->icon_image) }}" alt="ユーザーアイコン" class="user-icon">
+        </a>
       @endforeach
     </div>
     @endif
@@ -21,7 +23,9 @@
   @foreach($posts as $post)
     <div class="post">
       <div class="post-header">
+        <a href="{{ route('profile', ['user' => $post->user->id]) }}">
         <img src="{{ asset('images/' . $post->user->icon_image) }}" alt="ユーザーアイコン" class="user-icon">
+        </a>
         <span class="username">{{ $post->user->username }}</span>
         <span class="post-time">{{ $post->created_at->format('Y-m-d H:i') }}</span>
       </div>

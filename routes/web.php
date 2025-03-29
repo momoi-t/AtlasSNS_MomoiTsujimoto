@@ -36,9 +36,9 @@ Route::middleware('auth')->group(function (){
   // 自分のプロフィール編集画面
   Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
   // プロフィール更新処理
-  Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+  Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
   //他ユーザーのプロフィール画面
-  Route::get('profile/',[ProfileController::class,'profile'])->name('profile');
+  Route::get('profile/{user}',[ProfileController::class,'profile'])->name('profile');
   //検索
   Route::get('/search', [UsersController::class, 'index'])->name('search');
   //フォロー機能

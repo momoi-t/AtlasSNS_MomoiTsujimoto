@@ -1,5 +1,5 @@
 <x-login-layout>
 
- <h2>プロフィール編集のページ</h2>
+ <h2>他ユーザプロフィールページ</h2>
 
 </x-login-layout>

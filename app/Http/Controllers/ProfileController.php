@@ -15,8 +15,7 @@ use App\Models\User;
 class ProfileController extends Controller
 {
     //プロフィールページ
-    public function profile(){
-        $user = Auth::user();
+    public function profile(User $user){
         return view('profiles.profile',compact('user'));
     }
 
@@ -75,7 +74,7 @@ class ProfileController extends Controller
     $user->bio = $validated['bio'];
     $user->save();
 
-    return redirect()->route('profile.edit')->with('success', 'プロフィールを更新しました！');
+    return redirect()->route('top')->with('success', 'プロフィールを更新しました！');
 
     }
 }
