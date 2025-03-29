@@ -41,16 +41,6 @@ h1 a img {
     position: relative;
 }
 
-.user-icon {
-    width: auto;
-    height: 48px;
-    /* アイコンのサイズ */
-    border-radius: 50%;
-    /* 丸くする */
-    object-fit: cover;
-    /* 画像をトリミングしてフィット */
-}
-
 /* accordion menu */
 .accordion-toggle {
     cursor: pointer;
@@ -153,6 +143,38 @@ h1 a img {
     border-bottom: none;
 }
 
+/*Bootstrapボタンのスタイル*/
+.btn-primary {
+    border: none;
+    background-color: #0956cf;
+    padding: 7px 24px;
+    margin: 20px;
+}
+
+.btn-success {
+    border: none;
+    background-color: #52acff;
+    padding: 7px 24px;
+}
+
+.btn-success:hover {
+    background-color: #336EA5;
+}
+
+.btn-danger {
+    border: none;
+    background-color: #ed3833;
+    padding: 7px 24px;
+}
+
+/* フォームエリアのスタイル */
+.form-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* 検索フォームと検索ワードの間隔 */
+    border-bottom: 5px solid #e0e0e0;
+}
 
 /* 投稿フォームのスタイル */
 .post-form {
@@ -161,10 +183,9 @@ h1 a img {
     display: flex;
     /* フォーム内の要素を横並びにする */
     gap: 10px;
-    margin: 30px 0 10px 0;
-    /* 中央寄せ */
-    padding: 0px 200px 0px 100px;
+    padding: 30px 200px 30px 100px;
     border: none;
+    border-bottom: 3px solid #e0e0e0;
     /*box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.1);*/
 }
 
@@ -201,7 +222,8 @@ form button img {
 }
 
 /* 投稿一覧のスタイル */
-.posts-container {
+.posts-container,
+.users-container {
     width: 100%;
     background: #fff;
     padding: 15px;
@@ -226,14 +248,16 @@ form button img {
 }
 
 .user-icon {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     margin: 10px;
+    object-fit: cover;
 }
 
 .username {
     font-weight: bold;
+    margin: 10px;
 }
 
 .post-time {
@@ -248,7 +272,7 @@ form button img {
 
 .post-content {
     margin: 0 0 10px 0;
-    padding: 0px 0px 0px 50px;
+    padding: 0px 0px 0px 80px;
 }
 
 /* 投稿の編集・削除ボタン */
@@ -301,6 +325,84 @@ form button img {
     float: right;
     font-size: 20px;
     cursor: pointer;
+}
+
+/* ユーザー検索フォームのスタイル */
+
+.search-form {
+    width: 100%;
+    /* 親要素に対して幅を100%に設定 */
+    display: flex;
+    /* フォーム内の要素を横並びにする */
+    gap: 10px;
+    margin: 30px 0;
+    /* 中央寄せ */
+    padding: 0px 0px 0px 150px;
+    border: none;
+    /*box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.1);*/
+}
+
+.keyword-area {
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+    width: 60%;
+}
+
+.search-word {
+    font-size: 20px;
+    color: #666;
+    margin: 30px 0 10px 0;
+    padding: 0px 200px 0px 0px;
+    white-space: nowrap;
+    /* 折り返しを防ぐ */
+}
+
+.user {
+    display: flex;
+    position: relative;
+    padding: 10px 130px;
+    align-items: center;
+}
+
+.follow-button {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* アイコン一覧のスタイル */
+.icons-container {
+    width: 100%;
+    /* 親要素に対して幅を100%に設定 */
+    display: flex;
+    /* フォーム内の要素を横並びにする */
+    gap: 10px;
+    padding: 30px 200px 30px 100px;
+    border: none;
+    border-bottom: 3px solid #e0e0e0;
+    flex-wrap: wrap;
+}
+
+/* サイドバー */
+#confirm {
+    padding: 20px;
+    border-bottom: 1px solid #727272;
+}
+
+.follow-count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 20px 20px 0;
+    width: 50%;
+}
+
+.confirm-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 /* main content */

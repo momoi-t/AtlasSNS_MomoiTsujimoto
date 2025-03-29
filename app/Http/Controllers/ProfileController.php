@@ -8,10 +8,74 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+
 
 class ProfileController extends Controller
 {
+    //プロフィールページ
     public function profile(){
-        return view('profiles.profile');
+        $user = Auth::user();
+        return view('profiles.profile',compact('user'));
+    }
+
+    //プロフィール編集画面
+    public function edit(){
+        $user = Auth::user();
+        return view('profiles.edit',compact('user'));
+    }
+
+    //プロフィール更新処理
+    public function update(Request $request){
+        $user = Auth::user();
+
+        //バリデーション
+        $validated = $request->validate([
+        'username' => 'required|string|min:2|max:12',
+        'email' => [
+            'required',
+            'string',
+            'email',
+            'min:5',
+            'max:40',
+            function ($attribute, $value, $fail) use ($user) {
+                if ($value !== $user->email && User::where('email', $value)->exists()) {
+                    $fail('このメールアドレスは既に使用されています。');
+                }
+            },
+        ],
+        'password' => [
+            'nullable',
+            'string',
+            'regex:/^[a-zA-Z0-9]+$/',
+            'min:8',
+            'max:20',
+            'confirmed'
+        ],
+        'bio' => 'nullable|string|max:150',
+        'icon_image' => 'nullable|image|mimes:jpg,png,bmp,gif,svg|max:2048', // 画像のみ許可
+    ]);
+
+    // ユーザー情報の更新
+    $user->username = $validated['username'];
+    $user->email = $validated['email'];
+
+    // パスワードが入力された場合のみ更新
+    if (!empty($validated['password'])) {
+        $user->password = Hash::make($validated['password']);
+    }
+
+    // アイコン画像の処理
+    if ($request->hasFile('icon_image')) {
+        $path = $request->file('icon_image')->store('public/icons');
+        $user->icon_image = str_replace('public/', 'storage/', $path);
+    }
+
+    $user->bio = $validated['bio'];
+    $user->save();
+
+    return redirect()->route('profile.edit')->with('success', 'プロフィールを更新しました！');
+
     }
 }
