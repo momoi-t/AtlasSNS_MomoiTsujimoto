@@ -11,7 +11,7 @@
     <div class="icon-list">
       @foreach ($followingUsers as $followingUser)
         <a href="{{ route('profile', ['user' => $followingUser->id]) }}">
-        <img src="{{ asset('images/' . $followingUser->icon_image) }}" alt="ユーザーアイコン" class="user-icon">
+        <img src="{{ asset(str_replace('images/', 'storage/', $followingUser->icon_image)) }}" alt="ユーザーアイコン" class="user-icon">
         </a>
       @endforeach
     </div>

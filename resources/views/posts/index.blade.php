@@ -5,7 +5,7 @@
   <form action="{{ route('posts.store') }}" method="POST" class="post-form">
     @csrf
     @if(Auth::check())
-      <img src="{{ asset('images/' . Auth::user()->icon_image) }}" alt="ユーザーアイコン" class="user-icon">
+      <img src="{{ asset(str_replace('images/', '/', Auth::user()->icon_image)) }}" alt="ユーザーアイコン" class="user-icon">
     @endif
       <textarea id="content" name="post" rows="4" required placeholder="投稿内容を入力してください。"minlength="1" maxlength="150"></textarea>
       <button type="submit">
@@ -19,7 +19,12 @@
   @foreach($posts as $post)
     <div class="post">
       <div class="post-header">
-        <img src="{{ asset('images/' . $post->user->icon_image) }}" alt="ユーザーアイコン" class="user-icon">
+        <img src="{{ asset(
+          strpos($post->user->icon_image, 'storage/') === 0
+          ? $post->user->icon_image
+          : 'storage/' . $post->user->icon_image
+          ) }}" alt="ユーザーアイコン" class="user-icon">
+
         <span class="username">{{ $post->user->username }}</span>
         <span class="post-time">{{ $post->created_at->format('Y-m-d H:i') }}</span>
       </div>

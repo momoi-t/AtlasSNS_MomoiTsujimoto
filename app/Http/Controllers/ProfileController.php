@@ -27,7 +27,7 @@ class ProfileController extends Controller
 
     //プロフィール更新処理
     public function update(Request $request){
-        $user = Auth::user();
+        $user = auth()->user();
 
         //バリデーション
         $validated = $request->validate([
@@ -45,7 +45,7 @@ class ProfileController extends Controller
             },
         ],
         'password' => [
-            'nullable',
+            'sometimes',
             'string',
             'regex:/^[a-zA-Z0-9]+$/',
             'min:8',
@@ -67,11 +67,15 @@ class ProfileController extends Controller
 
     // アイコン画像の処理
     if ($request->hasFile('icon_image')) {
-        $path = $request->file('icon_image')->store('public/icons');
-        $user->icon_image = str_replace('public/', 'storage/', $path);
+        // 画像ファイルを保存
+        $path = $request->file('icon_image')->store('icons', 'public');
+
+        // ユーザーのアイコン画像をデータベースに保存
+        $user->icon_image = 'storage/' . $path;
     }
 
     $user->bio = $validated['bio'];
+
     $user->save();
 
     return redirect()->route('top')->with('success', 'プロフィールを更新しました！');

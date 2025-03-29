@@ -6,7 +6,7 @@
             @method('PUT')
             <!-- アイコンとユーザー名 -->
             <div class="form-group">
-            <img src="{{ asset('images/' . $user->icon_image) }}" alt="ユーザーアイコン" class="user-icon">
+            <img src="{{ asset(str_replace('images/', 'storage/', $user->icon_image)) }}" alt="ユーザーアイコン" class="user-icon">
             <label for="username">ユーザー名</label>
                 <input type="text" name="username" id="username" class="input-area @error('username') is-invalid @enderror" value="{{ old('username', $user->username) }}" required minlength="2" maxlength="12">
                 @error('username')
@@ -25,8 +25,8 @@
 
             <!-- 新しいパスワード -->
             <div class="form-group">
-                <label for="new_password">新しいパスワード</label>
-                <input type="password" name="new_password" id="new_password" class="input-area @error('new_password') is-invalid @enderror" required minlength="8" maxlength="20" pattern="[A-Za-z0-9]+" placeholder="英数字のみ">
+                <label for="password">新しいパスワード</label>
+                <input type="password" name="new_password" id="new_password" class="input-area @error('new_password') is-invalid @enderror" minlength="8" maxlength="20" pattern="[A-Za-z0-9]+" placeholder="英数字のみ">
                 @error('new_password')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -34,8 +34,8 @@
 
             <!-- パスワード確認 -->
             <div class="form-group">
-                <label for="new_password_confirmation">パスワード確認</label>
-                <input type="password" name="new_password_confirmation" id="new_password_confirmation" class="input-area @error('new_password_confirmation') is-invalid @enderror" required minlength="8" maxlength="20" pattern="[A-Za-z0-9]+" placeholder="新しいパスワードと一致">
+                <label for="password_confirmation">パスワード確認</label>
+                <input type="password" name="new_password_confirmation" id="new_password_confirmation" class="input-area @error('new_password_confirmation') is-invalid @enderror" minlength="8" maxlength="20" pattern="[A-Za-z0-9]+" placeholder="新しいパスワードと一致">
                 @error('new_password_confirmation')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -53,7 +53,7 @@
             <!-- 新しいアイコン画像 -->
             <div class="form-group">
                 <label for="icon_image">新しいアイコン画像</label>
-                <input type="file" name="icon_image" id="icon_image" class="input-area @error('icon_image') is-invalid @enderror" accept="image/*">
+                <input type="file" name="icon_image" id="icon_image" class="input-area @error('icon_image') is-invalid @enderror" accept="image/*" value="{{ old('icon_image') }}">
                 @error('icon_image')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
