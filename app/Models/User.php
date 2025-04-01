@@ -67,7 +67,9 @@ class User extends Authenticatable
 
     //投稿を取得
     public function posts()
-{
+    {
     return $this->hasMany(Post::class, 'user_id');
-}
+    }
+
+
 }

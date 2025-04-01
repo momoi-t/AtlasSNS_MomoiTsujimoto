@@ -16,13 +16,26 @@ class ProfileController extends Controller
 {
     //プロフィールページ
     public function profile(User $user){
+        // 各ユーザーのアイコンパスを設定
+        foreach ($users as $user) {
+            $user->iconPath = $user->icon_image === 'icon1.png'
+                ? asset('images/icon1.png')
+                : asset('/' . $user->icon_image);
+    }
+
         return view('profiles.profile',compact('user'));
     }
 
     //プロフィール編集画面
     public function edit(){
         $user = Auth::user();
-        return view('profiles.edit',compact('user'));
+
+        // ログインユーザーのiconPath
+        $authIconPath = $user->icon_image === 'icon1.png'
+            ? asset('images/icon1.png')
+            : asset('/' . $user->icon_image);
+
+        return view('profiles.edit',compact('user','authIconPath'));
     }
 
     //プロフィール更新処理

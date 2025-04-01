@@ -27,6 +27,14 @@ class UsersController extends Controller
             ->get();
         }
 
+        // 各ユーザーのアイコンパスを設定
+        foreach ($users as $user) {
+            $user->iconPath = $user->icon_image === 'icon1.png'
+                ? asset('images/icon1.png')
+                : asset('/' . $user->icon_image);
+    }
+
+
         return view('users.search', compact('users', 'keyword'));
     }
 }

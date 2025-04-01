@@ -17,13 +17,28 @@ class FollowsController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
 
+    // 各フォローしているユーザーのアイコンパスを設定
+    foreach ($followingUsers as $followingUser) {
+        $followingUser->iconPath = $followingUser->icon_image === 'icon1.png'
+            ? asset('images/icon1.png')
+            : asset('/' . $followingUser->icon_image);
+    }
+
     // フォローしているユーザーのIDを取得
         $followingIds = $user->followings()->pluck('followed_id');
 
     // フォローしているユーザーの投稿のみ取得（最新順）
         $posts = \App\Models\Post::whereIn('user_id', $followingIds)
+        ->with('user')
         ->orderBy('created_at', 'desc')
         ->get();
+
+        // 各投稿のユーザーのアイコンパスを設定
+        foreach ($posts as $post) {
+            $post->user->iconPath = $post->user->icon_image === 'icon1.png'
+                ? asset('images/icon1.png')
+                : asset('/' . $post->user->icon_image);
+        }
 
         return view('follows.followList', compact('followingUsers', 'posts'));
     }
@@ -37,13 +52,28 @@ class FollowsController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
 
+    // 各フォロワーのアイコンパスを設定
+    foreach ($followedUsers as $followedUser) {
+        $followedUser->iconPath = $followedUser->icon_image === 'icon1.png'
+            ? asset('images/icon1.png')
+            : asset('/' . $followedUser->icon_image);
+    }
+
     // フォロワーのIDを取得
         $followedIds = $user->followers()->pluck('following_id');
 
     // フォロワーの投稿のみ取得（最新順）
         $posts = \App\Models\Post::whereIn('user_id', $followedIds)
+        ->with('user')
         ->orderBy('created_at', 'desc')
         ->get();
+
+    // 各投稿のユーザーのアイコンパスを設定
+        foreach ($posts as $post) {
+            $post->user->iconPath = $post->user->icon_image === 'icon1.png'
+                ? asset('images/icon1.png')
+                : asset('/' . $post->user->icon_image);
+        }
 
         return view('follows.followerList', compact('followedUsers', 'posts'));
     }

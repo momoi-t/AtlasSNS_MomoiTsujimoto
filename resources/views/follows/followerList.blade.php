@@ -10,11 +10,7 @@
     <div class="icon-list">
       @foreach ($followedUsers as $followedUser)
         <a href="{{ route('profile', ['user' => $followedUser->id]) }}">
-        <img src="{{ asset(
-          strpos($followedUser->icon_image, 'storage/') === 0
-          ? $followedUser->icon_image
-          : 'storage/' . $followedUser->icon_image
-          ) }}" alt="ユーザーアイコン" class="user-icon">
+        <img src="{{ $followedUser->iconPath }}" alt="ユーザーアイコン" class="user-icon">
         </a>
       @endforeach
     </div>
@@ -27,7 +23,7 @@
     <div class="post">
       <div class="post-header">
         <a href="{{ route('profile', ['user' => $post->user->id]) }}">
-        <img src="{{ asset('images/' . $post->user->icon_image) }}" alt="ユーザーアイコン" class="user-icon">
+        <img src="{{ $post->user->iconPath }}" alt="ユーザーアイコン" class="user-icon">
         </a>
         <span class="username">{{ $post->user->username }}</span>
         <span class="post-time">{{ $post->created_at->format('Y-m-d H:i') }}</span>

@@ -11,11 +11,12 @@ class Follow extends Model
 
     protected $fillable = ['following_id', 'followed_id'];
     //フォローしている
-    public function following_id() {
+    public function followingUser() {
         return $this->belongsTo(User::class, 'following_id');
+
     }
     //フォロワー
-    public function followed() {
+    public function followedUser() {
         return $this->belongsTo(User::class, 'followed_id');
     }
 }

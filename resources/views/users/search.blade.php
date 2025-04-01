@@ -19,7 +19,7 @@
     @foreach($users as $user)
         <div class="user">
             <a href="{{ route('profile', ['user' => $user->id]) }}">
-            <img src="{{ asset('images/' . $user->icon_image) }}" alt="ユーザーアイコン" class="user-icon">
+            <img src="{{ $user->iconPath }}" alt="ユーザーアイコン" class="user-icon">
             </a>
             <span class="username">{{ $user->username }}</span>
 

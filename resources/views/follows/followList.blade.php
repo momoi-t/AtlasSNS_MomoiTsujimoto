@@ -11,7 +11,7 @@
     <div class="icon-list">
       @foreach ($followingUsers as $followingUser)
         <a href="{{ route('profile', ['user' => $followingUser->id]) }}">
-        <img src="{{ asset(str_replace('images/', 'storage/', $followingUser->icon_image)) }}" alt="ユーザーアイコン" class="user-icon">
+        <img src="{{ $followingUser->iconPath }}" alt="ユーザーアイコン" class="user-icon">
         </a>
       @endforeach
     </div>
@@ -24,7 +24,7 @@
     <div class="post">
       <div class="post-header">
         <a href="{{ route('profile', ['user' => $post->user->id]) }}">
-        <img src="{{ asset('images/' . $post->user->icon_image) }}" alt="ユーザーアイコン" class="user-icon">
+        <img src="{{ $post->user->iconPath }}" alt="ユーザーアイコン" class="user-icon">
         </a>
         <span class="username">{{ $post->user->username }}</span>
         <span class="post-time">{{ $post->created_at->format('Y-m-d H:i') }}</span>

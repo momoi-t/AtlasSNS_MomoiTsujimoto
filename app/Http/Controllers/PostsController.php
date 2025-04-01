@@ -17,7 +17,21 @@ class PostsController extends Controller
         // 投稿を新しい順に取得
         $posts = Post::with('user')->orderBy('created_at', 'desc')->get();
 
-        return view('posts.index', compact('posts'));
+        //各投稿のユーザのiconPath
+        foreach ($posts as $post) {
+        $post->user->iconPath = $post->user->icon_image === 'icon1.png'
+            ? asset('images/icon1.png')
+            : asset('/' . $post->user->icon_image);
+        }
+
+        // ログインユーザーのiconPath
+        $authIconPath = auth()->check()
+        ? (auth()->user()->icon_image === 'icon1.png'
+            ? asset('images/icon1.png')
+            : asset('storage/' . auth()->user()->icon_image))
+        : null;
+
+        return view('posts.index', compact('posts','authIconPath'));
     }
 
     //投稿

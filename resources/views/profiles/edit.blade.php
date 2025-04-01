@@ -6,7 +6,7 @@
             @method('PUT')
             <!-- アイコンとユーザー名 -->
             <div class="form-group">
-            <img src="{{ asset(str_replace('images/', 'storage/', $user->icon_image)) }}" alt="ユーザーアイコン" class="user-icon">
+            <img src="{{ $authIconPath }}" alt="ユーザーアイコン" class="user-icon">
             <label for="username">ユーザー名</label>
                 <input type="text" name="username" id="username" class="input-area @error('username') is-invalid @enderror" value="{{ old('username', $user->username) }}" required minlength="2" maxlength="12">
                 @error('username')
