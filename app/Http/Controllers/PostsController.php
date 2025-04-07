@@ -28,7 +28,7 @@ class PostsController extends Controller
         $authIconPath = auth()->check()
         ? (auth()->user()->icon_image === 'icon1.png'
             ? asset('images/icon1.png')
-            : asset('storage/' . auth()->user()->icon_image))
+            : asset('/' . auth()->user()->icon_image))
         : null;
 
         return view('posts.index', compact('posts','authIconPath'));

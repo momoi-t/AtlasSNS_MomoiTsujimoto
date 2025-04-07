@@ -7,7 +7,7 @@
     <div class="user-menu">
         <p class="accordion-toggle">{{ Auth::user()->username }}さん<span class="toggle-icon">Ｖ</span></p>
             @if(Auth::check())
-                <img src="{{ asset('images/' . Auth::user()->icon_image) }}" alt="ユーザーアイコン" class="user-icon">
+                <img src="{{ $authIconPath }}" alt="ユーザーアイコン" class="user-icon">
             @endif
             <ul class="accordion-content">
                 <li><a href="{{ route('top') }}">HOME</a></li>

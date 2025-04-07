@@ -34,6 +34,11 @@ class UsersController extends Controller
                 : asset('/' . $user->icon_image);
     }
 
+        // ログインユーザーのiconPath
+        $authIconPath = $user->icon_image === 'icon1.png'
+            ? asset('images/icon1.png')
+            : asset('/' . $user->icon_image);
+
 
         return view('users.search', compact('users', 'keyword'));
     }
