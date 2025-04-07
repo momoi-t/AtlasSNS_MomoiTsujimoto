@@ -219,13 +219,21 @@ form button img {
     height: 45px;
 }
 
-/* 投稿一覧のスタイル */
+/* 一覧のスタイル */
 .posts-container,
 .users-container {
     width: 100%;
     background: #fff;
     padding: 15px;
     border-radius: 10px;
+}
+
+.profile-container {
+    width: 100%;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    border-bottom: 3px solid #e0e0e0;
 }
 
 /* 投稿の個別スタイル */
@@ -271,6 +279,19 @@ form button img {
 .post-content {
     margin: 0 0 10px 0;
     padding: 0px 0px 0px 80px;
+}
+
+
+
+.profile-username {
+    font-weight: bold;
+    margin: 10px 30px;
+    width: 100%;
+}
+
+.profile-bio {
+    margin: 10px 30px;
+    width: 100%;
 }
 
 /* 投稿の編集・削除ボタン */

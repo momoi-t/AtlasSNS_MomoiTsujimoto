@@ -16,14 +16,26 @@ class ProfileController extends Controller
 {
     //プロフィールページ
     public function profile(User $user){
-        // 各ユーザーのアイコンパスを設定
-        foreach ($users as $user) {
-            $user->iconPath = $user->icon_image === 'icon1.png'
-                ? asset('images/icon1.png')
-                : asset('/' . $user->icon_image);
-    }
+        // 投稿一覧（新しい順）
+        $posts = $user->posts()->latest()->get();
 
-        return view('profiles.profile',compact('user'));
+        // 対象ユーザーのアイコンパスを設定
+        $user->iconPath = $user->icon_image === 'icon1.png'
+            ? asset('images/icon1.png')
+            : asset('/' . $user->icon_image);
+
+        // 各投稿のユーザーにもアイコンパスを設定
+        foreach ($posts as $post) {
+            $postUser = $post->user;
+            $postUser->iconPath = $postUser->icon_image === 'icon1.png'
+                ? asset('images/icon1.png')
+                : asset('/' . $postUser->icon_image);
+        }
+
+        // フォロー中かどうかを判定
+        $isFollowing = Auth::check() && Auth::user()->isFollowing($user->id);
+
+        return view('profiles.profile',compact('user','posts', 'isFollowing'));
     }
 
     //プロフィール編集画面
