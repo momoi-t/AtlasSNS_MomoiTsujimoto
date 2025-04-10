@@ -21,6 +21,7 @@
         <link rel="icon" href="画像URL" sizes="62x62" type="image/png" />
         <!--iphoneのアプリアイコン指定-->
         <link rel="apple-touch-icon-precomposed" href="画像のURL" />
+
     </head>
     <body>
         <header>
