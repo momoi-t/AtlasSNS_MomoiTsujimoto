@@ -14,8 +14,16 @@ class PostsController extends Controller
     }
 
     public function index(){
-        // 投稿を新しい順に取得
-        $posts = Post::with('user')->orderBy('created_at', 'desc')->get();
+        $user = Auth::user();
+        //フォローしているユーザを取得
+        $followingIds = $user->followings()->pluck('followed_id');
+        $visibleUserIds = $followingIds->push($user->id);
+
+        // 投稿を新しい順に取得　（自分＋フォローしているユーザのみ）
+        $posts = Post::whereIn('user_id', $visibleUserIds)
+        ->with('user')
+        ->orderBy('created_at', 'desc')
+        ->get();
 
         //各投稿のユーザのiconPath
         foreach ($posts as $post) {
