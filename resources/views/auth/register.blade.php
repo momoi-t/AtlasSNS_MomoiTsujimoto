@@ -12,25 +12,26 @@
     </div>
 @endif
 
-<h2>新規ユーザー登録</h2>
+<div class="register-box">
+<p>新規ユーザー登録</p>
 
-{{ Form::label('ユーザー名') }}
+{{ Form::label('username','username') }}
 {{ Form::text('username',null,['class' => 'input']) }}
 
-{{ Form::label('メールアドレス') }}
+{{ Form::label('email','mail address') }}
 {{ Form::email('email',null,['class' => 'input']) }}
 
-{{ Form::label('パスワード') }}
+{{ Form::label('password','password') }}
 {{ Form::text('password',null,['class' => 'input']) }}
 
-{{ Form::label('パスワード確認') }}
+{{ Form::label('passwordconfirm','password confirm') }}
 {{ Form::text('password_confirmation',null,['class' => 'input']) }}
 
-{{ Form::submit('登録') }}
+{{ Form::submit('REGISTER',['class' => 'btn btn-danger']) }}
 
 <p><a href="login">ログイン画面へ戻る</a></p>
 
 {!! Form::close() !!}
 
-
+</div>
 </x-logout-layout>

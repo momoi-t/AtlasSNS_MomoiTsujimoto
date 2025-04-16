@@ -22,8 +22,8 @@ body {
 
 /* ヘッダー　*/
 header {
-    margin-top: 150px;
-    margin-bottom: 40px;
+    margin-top: 3%;
+    margin-bottom: 1%;
     text-align: center;
     color: #ffffff;
 }
@@ -54,7 +54,8 @@ header img {
 }
 
 /* フォームのボックス */
-.login-box {
+.login-box,
+.register-box {
     background: rgba(0, 0, 0, 0.16);
     border-radius: 10px;
     padding: 20px 30px;
@@ -65,7 +66,8 @@ header img {
 }
 
 /* 各ラベル（左寄せ） */
-.login-box label {
+.login-box label,
+.register-box label {
     display: block;
     text-align: left;
     margin-bottom: 5px;
@@ -74,7 +76,9 @@ header img {
 }
 
 .login-box p,
-.login-box a {
+.login-box a,
+.register-box p,
+.register-box a {
     color: #ffffff;
 }
 
@@ -89,7 +93,8 @@ header img {
 }
 
 /* ログインボタン */
-.login-box .btn {
+.login-box .btn,
+.register-box .btn {
     display: block;
     text-align: right;
     margin-left: auto;
@@ -98,7 +103,8 @@ header img {
 }
 
 /* box内の文字 */
-.login-box p {
+.login-box p,
+.register-box p {
     font-size: 20px;
     text-align: center;
     color: #fff;
@@ -106,7 +112,8 @@ header img {
     margin-top: 20px;
 }
 
-.login-box a {
+.login-box a,
+.register-box a {
     font-size: 15px;
     text-align: center;
     color: #fff;
