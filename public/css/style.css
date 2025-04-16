@@ -309,15 +309,19 @@ form button img {
 }
 
 .edit-btn {
-    /*position: absolute;*/
     right: 0;
 }
 
 .delete-btn {
-    /*position: absolute;*/
     right: 0;
+    height: 46px;
+    width: 46px;
 }
 
+.delete-btn:hover {
+    right: 0;
+    content: url('/images/trash-h.png');
+}
 
 /* 投稿編集モーダル */
 .modal {
