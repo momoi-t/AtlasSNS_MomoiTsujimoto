@@ -69,8 +69,8 @@ class ProfileController extends Controller
                 }
             },
         ],
-        'password' => [
-            'sometimes',
+        'new_password' => [
+            'required',
             'string',
             'regex:/^[a-zA-Z0-9]+$/',
             'min:8',
@@ -84,11 +84,7 @@ class ProfileController extends Controller
     // ユーザー情報の更新
     $user->username = $validated['username'];
     $user->email = $validated['email'];
-
-    // パスワードが入力された場合のみ更新
-    if (!empty($validated['password'])) {
-        $user->password = Hash::make($validated['password']);
-    }
+    $user->password = Hash::make($request->new_password);
 
     // アイコン画像の処理
     if ($request->hasFile('icon_image')) {

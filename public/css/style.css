@@ -232,7 +232,7 @@ form button img {
     width: 100%;
     background: #fff;
     padding: 15px;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     border-bottom: 3px solid #e0e0e0;
 }
 

@@ -7,7 +7,7 @@
             <!-- アイコンとユーザー名 -->
             <div class="form-group">
             <img src="{{ $authIconPath }}" alt="ユーザーアイコン" class="user-icon">
-            <label for="username">ユーザー名</label>
+            <label for="username">user name</label>
                 <input type="text" name="username" id="username" class="input-area @error('username') is-invalid @enderror" value="{{ old('username', $user->username) }}" required minlength="2" maxlength="12">
                 @error('username')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -16,17 +16,17 @@
 
             <!-- メールアドレス -->
             <div class="form-group">
-                <label for="email">メールアドレス</label>
+                <label for="email">mail address</label>
                 <input type="email" name="email" id="email" class="input-area @error('email') is-invalid @enderror" value="{{ old('email', $user->email) }}" required>
                 @error('email')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 
-            <!-- 新しいパスワード -->
+            <!-- パスワード -->
             <div class="form-group">
-                <label for="password">新しいパスワード</label>
-                <input type="password" name="new_password" id="new_password" class="input-area @error('new_password') is-invalid @enderror" minlength="8" maxlength="20" pattern="[A-Za-z0-9]+" placeholder="英数字のみ">
+                <label for="password">password</label>
+                <input type="password" name="new_password" id="new_password" class="input-area @error('new_password') is-invalid @enderror"required minlength="8" maxlength="20" pattern="[A-Za-z0-9]+" placeholder="英数字のみ">
                 @error('new_password')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -34,8 +34,8 @@
 
             <!-- パスワード確認 -->
             <div class="form-group">
-                <label for="password_confirmation">パスワード確認</label>
-                <input type="password" name="new_password_confirmation" id="new_password_confirmation" class="input-area @error('new_password_confirmation') is-invalid @enderror" minlength="8" maxlength="20" pattern="[A-Za-z0-9]+" placeholder="新しいパスワードと一致">
+                <label for="password_confirmation">password confirm</label>
+                <input type="password" name="new_password_confirmation" id="new_password_confirmation" class="input-area @error('new_password_confirmation') is-invalid @enderror"required minlength="8" maxlength="20" pattern="[A-Za-z0-9]+" placeholder="passwordと一致">
                 @error('new_password_confirmation')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -43,7 +43,7 @@
 
             <!-- 自己紹介 -->
             <div class="form-group">
-                <label for="bio">自己紹介</label>
+                <label for="bio">bio</label>
                 <textarea name="bio" id="bio" class="input-area @error('bio') is-invalid @enderror" rows="4" maxlength="150">{{ old('bio', $user->bio) }}</textarea>
                 @error('bio')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -52,7 +52,7 @@
 
             <!-- 新しいアイコン画像 -->
             <div class="form-group">
-                <label for="icon_image">新しいアイコン画像</label>
+                <label for="icon_image">icon image</label>
                 <input type="file" name="icon_image" id="icon_image" class="input-area @error('icon_image') is-invalid @enderror" accept="image/*" value="{{ old('icon_image') }}">
                 @error('icon_image')
                     <div class="invalid-feedback">{{ $message }}</div>
