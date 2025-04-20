@@ -7,11 +7,8 @@ body {}
 .header-container {
     display: flex;
     justify-content: space-between;
-    /* Space between the left and right content */
     align-items: center;
-    /* Center the items vertically */
     padding: 20px;
-    /* Optional: Adjust the padding as needed */
     height: 90px;
 }
 
@@ -23,7 +20,6 @@ header {
 
 h1 a img {
     display: block;
-    /* Removes any extra space around the image */
     height: 35px;
 }
 
@@ -34,8 +30,6 @@ h1 a img {
     gap: 15px;
     /* ユーザー名とアイコンの間隔を調整 */
     text-align: right;
-    /* Align the user menu and accordion on the right */
-    /*text-decoration: none;*/
     color: #ffffff;
     padding: 0.8em;
     position: relative;
@@ -44,9 +38,9 @@ h1 a img {
 /* accordion menu */
 .accordion-toggle {
     cursor: pointer;
-    font-size: 22px;
+    font-size: 20px;
+    font-weight: bold;
     color: #ffffff;
-    /*font-weight: bold;*/
     /* Button color */
     display: inline-flex;
     align-items: center;
@@ -65,19 +59,13 @@ h1 a img {
     list-style: none;
     margin: 0;
     position: absolute;
-    /* Position the dropdown below the toggle button */
     width: auto;
-    /*min-width: 150px;*/
-    /* 必要に応じて調整 */
     right: 0;
     /* 右端に寄せる */
     left: auto;
-    /* Set the width of the dropdown */
     top: 100%;
-    /* Position it just below the toggle button */
     left: 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /*border: 0.5px solid #03297e;*/
 }
 
 .accordion-content.active {
@@ -89,7 +77,6 @@ h1 a img {
 
 .accordion-item {
     position: relative;
-    /* Ensure the toggle button can position the dropdown below it */
 }
 
 .accordion-content a {
@@ -104,7 +91,6 @@ h1 a img {
     border: 1px solid #ddd;
     /* 下部にボーダーを追加 */
     transition: background-color 0.3s ease, color 0.3s ease;
-    /*　スムーズな変化 */
 }
 
 .accordion-content a:hover {
@@ -126,7 +112,6 @@ h1 a img {
 
 .accordion-item {
     position: relative;
-    /* Ensure the toggle button can position the dropdown below it */
 }
 
 .accordion-item.active .toggle-icon {
@@ -146,9 +131,10 @@ h1 a img {
 /*Bootstrapボタンのスタイル*/
 .btn-primary {
     border: none;
+    border-radius: 8px;
     background-color: #0956cf;
-    padding: 7px 24px;
-    margin: 20px;
+    padding: 10px 15px;
+    margin: 15px;
 }
 
 .btn-success {
@@ -186,7 +172,6 @@ h1 a img {
     padding: 30px 200px 30px 100px;
     border: none;
     border-bottom: 3px solid #e0e0e0;
-    /*box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.1);*/
 }
 
 form div:last-child {
@@ -232,8 +217,22 @@ form button img {
     width: 100%;
     background: #fff;
     padding: 15px;
-    /*border-radius: 10px;*/
-    border-bottom: 3px solid #e0e0e0;
+    border-bottom: 5px solid #e0e0e0;
+}
+
+.profile-details {
+    width: 100%;
+    font-size: 20px;
+}
+
+.profile-username strong {
+    margin-right: 100px;
+    font-weight: normal;
+}
+
+.profile-bio strong {
+    margin-right: 122px;
+    font-weight: normal;
 }
 
 /* 投稿の個別スタイル */
@@ -281,16 +280,33 @@ form button img {
     padding: 0px 0px 0px 80px;
 }
 
-
-
 .profile-username {
-    font-weight: bold;
     margin: 10px 30px;
     width: 100%;
 }
 
 .profile-bio {
     margin: 10px 30px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.bio-label {
+    display: block;
+    margin-left: 30px;
+    /* ラベルの位置調整（必要なら） */
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.profile-bio-box {
+    margin: 0 30px 10px 30px;
+    padding: 10px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
     width: 100%;
 }
 
@@ -362,7 +378,6 @@ form button img {
     /* 中央寄せ */
     padding: 0px 0px 0px 150px;
     border: none;
-    /*box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.1);*/
 }
 
 .keyword-area {
@@ -383,6 +398,7 @@ form button img {
 
 .user {
     display: flex;
+    align-items: flex-start;
     position: relative;
     padding: 10px 130px;
     align-items: center;
@@ -404,7 +420,7 @@ form button img {
     gap: 10px;
     padding: 30px 200px 30px 100px;
     border: none;
-    border-bottom: 3px solid #e0e0e0;
+    border-bottom: 5px solid #e0e0e0;
     flex-wrap: wrap;
 }
 
@@ -463,7 +479,7 @@ label[for="username"] {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 20px 20px 20px 0;
+    margin: 10px 20px 0px 0;
     width: 50%;
 }
 
@@ -471,6 +487,12 @@ label[for="username"] {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+}
+
+.search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* main content */

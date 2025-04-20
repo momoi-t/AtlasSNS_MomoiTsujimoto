@@ -51,7 +51,9 @@
         <a class="btn btn-primary" href="{{ route('follower-list') }}">フォロワーリスト</a>
         </div>
       </div>
+      <div class="search-btn">
       <a class="btn btn-primary" href="{{ route('search')}}">ユーザー検索</a>
+      </div>
     </div>
   </div>
   <footer>

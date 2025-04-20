@@ -5,8 +5,9 @@
     <div class="user">
         <img src="{{ $user->iconPath }}" alt="ユーザーアイコン" class="user-icon">
         <div class="profile-details">
-          <p class="profile-username">{{ $user->username }}</p>
-          <p class="profile-bio">{{ $user->bio }}</p>
+          <p class="profile-username"><strong>name</strong>{{ $user->username }}</p>
+          <p class="profile-bio"><strong>bio</strong>{{ $user->bio }}
+          </p>
         </div>
 
         <!-- フォロー/フォロー解除ボタン -->
