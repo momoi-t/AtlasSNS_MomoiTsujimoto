@@ -53,13 +53,13 @@
             <!-- 新しいアイコン画像 -->
             <div class="form-group">
                 <label for="icon_image">icon image</label>
-                <input type="file" name="icon_image" id="icon_image" class="input-area @error('icon_image') is-invalid @enderror" accept="image/*" value="{{ old('icon_image') }}">
+                <input type="file" name="icon_image" id="icon_image" class="input-area icon-image-input @error('icon_image') is-invalid @enderror" accept="image/*" value="{{ old('icon_image') }}">
                 @error('icon_image')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="profile-edit-btn">
-            <button type="submit" class="btn btn-danger">更新</button>
+            <button type="submit" class="btn btn-danger p-edit-btn">更新</button>
             </div>
         </form>
     </div>
