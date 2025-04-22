@@ -34,15 +34,13 @@
           <!-- 編集 -->
           <button class="edit-btn"
             data-post-id="{{ $post->id }}"
-            data-post-content="{{ $post->post }}" style="background: none; border: none;">
-            <img src="{{ asset('images/edit.png') }}" alt="編集" class="action-icon">
+            data-post-content="{{ $post->post }}" >
           </button>
           <!-- 削除 -->
           <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="delete-btn">
             @csrf
             @method('DELETE')
-              <button type="submit"  onclick="return confirm('本当に削除しますか？')" style="background: none; border: none;">
-                <img src="{{ asset('images/trash.png') }}" alt="削除" class="action-icon">
+              <button type="submit"  onclick="return confirm('本当に削除しますか？')">
               </button>
           </form>
         @endif
