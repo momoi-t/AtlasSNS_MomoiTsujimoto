@@ -22,10 +22,10 @@
 {{ Form::email('email',null,['class' => 'input']) }}
 
 {{ Form::label('password','password') }}
-{{ Form::text('password',null,['class' => 'input']) }}
+{{ Form::password('password',['class' => 'input']) }}
 
 {{ Form::label('passwordconfirm','password confirm') }}
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
+{{ Form::password('password_confirmation',['class' => 'input']) }}
 
 {{ Form::submit('REGISTER',['class' => 'btn btn-danger']) }}
 

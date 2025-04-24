@@ -22,7 +22,7 @@ body {
 
 /* ヘッダー　*/
 header {
-    margin-top: 3%;
+    margin-top: 5%;
     margin-bottom: 1%;
     text-align: center;
     color: #ffffff;
@@ -43,7 +43,7 @@ header img {
     object-fit: contain;
 }
 
-/* ログインフォーム */
+/* フォーム */
 
 #container {
     display: flex;
@@ -53,9 +53,9 @@ header img {
     margin-top: 0;
 }
 
-/* フォームのボックス */
+/* 黒いボックス */
 .login-box,
-.register-box {
+.added-box {
     background: rgba(0, 0, 0, 0.16);
     border-radius: 10px;
     padding: 20px 30px;
@@ -64,6 +64,17 @@ header img {
     max-width: 400px;
     margin: 0;
 }
+
+.register-box {
+    background: rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+    padding: 10px 30px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0;
+}
+
 
 /* 各ラベル（左寄せ） */
 .login-box label,
@@ -92,14 +103,16 @@ header img {
     color: #000000;
 }
 
-/* ログインボタン */
+/* 左寄せボタン共通 */
 .login-box .btn,
 .register-box .btn {
     display: block;
-    text-align: right;
     margin-left: auto;
     font-size: 20px;
-    border-radius: 8px;
+}
+
+.added-box .btn {
+    margin: 10px;
 }
 
 /* box内の文字 */
@@ -112,6 +125,18 @@ header img {
     margin-top: 20px;
 }
 
+/* 新規登録完了メッセージ */
+.clear {
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.added-message {
+    padding: 30px 0;
+    font-size: 15px;
+}
+
 .login-box a,
 .register-box a {
     font-size: 15px;
@@ -122,7 +147,10 @@ header img {
 
 /*Bootstrapボタンのスタイル*/
 .btn-danger {
+    width: 140px;
+    text-align: center;
     border: none;
     background-color: #ED3A50;
-    padding: 7px 35px;
+    padding: 7px auto;
+    border-radius: 8px;
 }
