@@ -326,7 +326,8 @@ form button img {
     cursor: pointer;
 }
 
-.edit-btn {
+.edit-btn,
+.edit-enter-btn {
     right: 0;
     background: none;
     background-image: url('/images/edit.png');
@@ -337,6 +338,8 @@ form button img {
     border: none;
     vertical-align: middle;
 }
+
+
 
 .delete-btn {
     right: 0;

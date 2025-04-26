@@ -54,7 +54,7 @@
             @csrf
             @method('PUT')
             <textarea name="post" id="editContent" rows="4" required minlength="1" maxlength="150"></textarea>
-            <button type="submit">更新</button>
+            <button class="edit-enter-btn" type="submit"></button>
         </form>
     </div>
 </div>
