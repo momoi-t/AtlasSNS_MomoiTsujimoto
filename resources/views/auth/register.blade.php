@@ -15,19 +15,19 @@
 <div class="register-box">
 <p>新規ユーザー登録</p>
 
-{{ Form::label('username','username') }}
+{{ Form::label('username','ユーザー名') }}
 {{ Form::text('username',null,['class' => 'input']) }}
 
-{{ Form::label('email','mail address') }}
+{{ Form::label('email','メールアドレス') }}
 {{ Form::email('email',null,['class' => 'input']) }}
 
-{{ Form::label('password','password') }}
+{{ Form::label('password','パスワード') }}
 {{ Form::password('password',['class' => 'input']) }}
 
-{{ Form::label('passwordconfirm','password confirm') }}
+{{ Form::label('passwordconfirm','パスワード確認') }}
 {{ Form::password('password_confirmation',['class' => 'input']) }}
 
-{{ Form::submit('REGISTER',['class' => 'btn btn-danger']) }}
+{{ Form::submit('新規登録',['class' => 'btn btn-danger']) }}
 
 <p><a href="login">ログイン画面へ戻る</a></p>
 

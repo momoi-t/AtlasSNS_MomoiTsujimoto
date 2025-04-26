@@ -5,13 +5,13 @@
   <div class="login-box">
   <p>AtlasSNSへようこそ</p>
 
-  {{ Form::label('email','mail address') }}
+  {{ Form::label('email','メールアドレス') }}
   {{ Form::text('email',null,['class' => 'input']) }}
 
-  {{ Form::label('password','password') }}
+  {{ Form::label('password','パスワード') }}
   {{ Form::password('password',['class' => 'input']) }}
 
-  {{ Form::submit('LOGIN',['class' => 'btn btn-danger']) }}
+  {{ Form::submit('ログイン',['class' => 'btn btn-danger']) }}
 
   <p><a href="register">新規ユーザーの方はこちら</a></p>
 

@@ -2,7 +2,8 @@
 
 html,
 body {
-    height: 100%;
+    height: auto;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
 }
@@ -18,6 +19,8 @@ body {
         linear-gradient(to bottom, #4aa5f9 50%, #fbe230 100%);
     color: #ffffff;
     font-family: sans-serif;
+    min-height: 100vh;
+    padding-bottom: 80px;
 }
 
 /* ヘッダー　*/
@@ -61,8 +64,8 @@ header img {
     padding: 20px 30px;
     text-align: center;
     width: 100%;
-    max-width: 400px;
-    margin: 0;
+    max-width: 350px;
+    margin-bottom: 50px;
 }
 
 .register-box {
