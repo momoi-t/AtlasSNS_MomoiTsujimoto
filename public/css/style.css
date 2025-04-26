@@ -1,8 +1,11 @@
 @charset "utf-8";
 
-html {}
-
-body {}
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 .header-container {
     display: flex;
@@ -209,7 +212,6 @@ form button img {
 .users-container {
     width: 100%;
     background: #fff;
-    padding: 15px;
     border-radius: 10px;
 }
 
@@ -333,6 +335,7 @@ form button img {
     width: 46px;
     cursor: pointer;
     border: none;
+    vertical-align: middle;
 }
 
 .delete-btn {
@@ -344,6 +347,7 @@ form button img {
     width: 46px;
     cursor: pointer;
     border: none;
+    vertical-align: middle;
 }
 
 .delete-btn:hover {
@@ -396,7 +400,7 @@ form button img {
     padding: 10px;
     font-size: 16px;
     resize: none;
-    width: 60%;
+    width: 50%;
 }
 
 .search-word {
@@ -434,6 +438,13 @@ form button img {
     border: none;
     border-bottom: 5px solid #e0e0e0;
     flex-wrap: wrap;
+    align-items: center;
+}
+
+.icons-container p {
+    padding: 0 20%;
+    margin-top: 22px;
+
 }
 
 /* プロフィール編集フォーム */
@@ -525,13 +536,19 @@ label[for="username"] {
 #row {
     display: flex;
     flex-flow: row wrap;
+    min-height: 100vh;
+    /* ビューポートの高さを最低限確保 */
+    align-items: stretch;
+    /* 高さを揃える */
 }
 
 #container {
-    flex: 0 0 80%;
+    flex: 1;
+    background-color: #fff;
 }
 
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+    box-sizing: border-box;
 }

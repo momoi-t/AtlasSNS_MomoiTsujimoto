@@ -5,7 +5,7 @@
   <h2>Follow List</h2>
     <!-- フォローしているユーザーがいない場合 -->
     @if(empty($followingUsers) || $followingUsers->isEmpty())
-      <p>フォローしているユーザーがいません。</p>
+      <p>フォローしているユーザーがいません、、</p>
     @else
     <!-- 自分がフォローしているユーザーのアイコン一覧 -->
     <div class="icon-list">
@@ -38,10 +38,10 @@
             data-post-content="{{ $post->post }}" >
           </button>
           <!-- 削除 -->
-          <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="delete-btn">
+          <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
             @csrf
             @method('DELETE')
-              <button type="submit"  onclick="return confirm('本当に削除しますか？')">
+              <button class="delete-btn" type="submit"  onclick="return confirm('本当に削除しますか？')">
               </button>
           </form>
         @endif

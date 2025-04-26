@@ -33,10 +33,10 @@
             data-post-content="{{ $post->post }}" >
           </button>
           <!-- 削除 -->
-          <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="delete-btn">
+          <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
             @csrf
             @method('DELETE')
-              <button type="submit"  onclick="return confirm('本当に削除しますか？')">
+              <button class="delete-btn" type="submit"  onclick="return confirm('本当に削除しますか？')">
               </button>
           </form>
         @endif
