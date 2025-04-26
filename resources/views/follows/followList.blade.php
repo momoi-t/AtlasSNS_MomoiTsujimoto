@@ -2,7 +2,7 @@
 
 <!-- アイコン一覧 -->
 <div class="icons-container">
-  <h2>Follow List</h2>
+  <h4>フォローリスト</h4>
     <!-- フォローしているユーザーがいない場合 -->
     @if(empty($followingUsers) || $followingUsers->isEmpty())
       <p>フォローしているユーザーがいません、、</p>

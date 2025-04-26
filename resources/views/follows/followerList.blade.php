@@ -1,7 +1,7 @@
 <x-login-layout>
 <!-- アイコン一覧 -->
 <div class="icons-container">
-  <h2>Follower List</h2>
+  <h4>フォロワーリスト</h4>
     <!-- フォロワーがいない場合 -->
     @if(empty($followedUsers) || $followedUsers->isEmpty())
       <p>フォロワーがいません、、</p>

@@ -389,14 +389,10 @@ form button img {
 /* ユーザー検索フォームのスタイル */
 
 .search-form {
-    width: 100%;
-    /* 親要素に対して幅を100%に設定 */
     display: flex;
-    /* フォーム内の要素を横並びにする */
     gap: 10px;
     margin: 30px 0;
-    /* 中央寄せ */
-    padding: 0px 0px 0px 150px;
+    padding: 0px 30px 0px 150px;
     border: none;
 }
 
@@ -408,12 +404,10 @@ form button img {
 }
 
 .search-word {
+    width: 400px;
     font-size: 20px;
     color: #666;
-    margin: 30px 0 10px 0;
-    padding: 0px 200px 0px 0px;
-    white-space: nowrap;
-    /* 折り返しを防ぐ */
+    margin: 30px 0;
 }
 
 .user {
@@ -464,6 +458,7 @@ form button img {
     position: relative;
     padding: 10px 200px;
     align-items: center;
+    text-align: center;
 }
 
 label {
@@ -479,9 +474,11 @@ label[for="username"] {
 }
 
 .input-area {
-    width: 60%;
+    width: 330px;
     height: 36px;
     padding: 6px 12px;
+    display: flex;
+    justify-content: center;
     background-color: #efefef;
     border: 1px solid #ccd0d2;
     border-radius: 4px;
@@ -492,9 +489,24 @@ label[for="username"] {
 .icon-image-input {
     height: 100px;
     padding: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.upload-input {
+    width: 115px;
+    height: 30px;
+    position: static;
+    transform: none;
+    color: transparent;
+}
+
+.upload-input::file-selector-button {
+    color: #000;
+    background: #fff;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    object-fit: contain;
+    border-radius: 4px;
 }
 
 .profile-edit-btn {
