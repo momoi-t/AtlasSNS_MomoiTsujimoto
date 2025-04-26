@@ -5,12 +5,14 @@
     <div class="user">
         <img src="{{ $user->iconPath }}" alt="ユーザーアイコン" class="user-icon">
         <div class="profile-details">
-          <p class="profile-username"><strong>ユーザー名</strong>{{ $user->username }}</p>
-          <p class="profile-bio"><strong>自己紹介</strong>{{ $user->bio }}</p>
+          <div class="profile-username"><strong>ユーザー名</strong><p class="username-details">{{ $user->username }}</p>
+          </div>
+          <div class="profile-bio"><strong>自己紹介</strong><p class="bio-details">{{ $user->bio }}</p>
+          </div>
         </div>
 
         <!-- フォロー/フォロー解除ボタン -->
-        <div class="follow-button">
+        <div class="follow-button profile">
           @if(Auth::id() !== $user->id)
             @if(Auth::user()->isFollowing($user->id))
                 <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">

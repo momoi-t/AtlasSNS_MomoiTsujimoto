@@ -23,7 +23,7 @@
             </a>
             <span class="username">{{ $user->username }}</span>
 
-            <div class="follow-button">
+            <div class="follow-button search">
             @if(Auth::id()  !== $user->id)
               @if(Auth::user()->isFollowing($user->id))
               <!-- フォロー解除ボタン -->
