@@ -11,7 +11,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px 0px 20px 20px;
     height: 90px;
 }
 
@@ -36,6 +36,7 @@ h1 a img {
     color: #ffffff;
     padding: 0.8em;
     position: relative;
+    height: 90px;
 }
 
 /* accordion menu */
@@ -62,12 +63,11 @@ h1 a img {
     list-style: none;
     margin: 0;
     position: absolute;
-    width: auto;
+    width: 288px;
     right: 0;
     /* 右端に寄せる */
-    left: auto;
     top: 100%;
-    left: 0;
+
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -564,7 +564,7 @@ label[for="username"] {
 }
 
 #side-bar {
-    flex: 0 0 19%;
+    flex: 0 0 20%;
     border-left: 1px solid #727272;
     box-sizing: border-box;
 }
