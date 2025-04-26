@@ -63,11 +63,10 @@ h1 a img {
     list-style: none;
     margin: 0;
     position: absolute;
-    width: 288px;
+    width: 2px;
     right: 0;
     /* 右端に寄せる */
     top: 100%;
-
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -215,6 +214,7 @@ form button img {
     border-radius: 10px;
 }
 
+/* プロフィール画面 */
 .profile-container {
     width: 100%;
     background: #fff;
@@ -224,17 +224,31 @@ form button img {
 
 .profile-details {
     width: 100%;
-    font-size: 20px;
+    font-size: 18px;
+}
+
+.profile-username {
+    margin: 10px 0 10px 30px;
+    width: 100%;
 }
 
 .profile-username strong {
-    margin-right: 100px;
+    margin-right: 88px;
     font-weight: normal;
+    width: 100px;
+}
+
+.profile-bio {
+    margin: 10px 0 10px 30px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
 }
 
 .profile-bio strong {
-    margin-right: 122px;
+    margin-right: 80px;
     font-weight: normal;
+    width: 100px;
 }
 
 /* 投稿の個別スタイル */
@@ -268,6 +282,7 @@ form button img {
     width: 300px;
 }
 
+/*　投稿のスタイル */
 .post-time {
     font-size: 12px;
     color: #888;
@@ -281,36 +296,6 @@ form button img {
 .post-content {
     margin: 0 0 10px 0;
     padding: 0px 0px 0px 80px;
-}
-
-.profile-username {
-    margin: 10px 30px;
-    width: 100%;
-}
-
-.profile-bio {
-    margin: 10px 30px;
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-}
-
-.bio-label {
-    display: block;
-    margin-left: 30px;
-    /* ラベルの位置調整（必要なら） */
-    font-weight: normal;
-    margin-bottom: 5px;
-}
-
-.profile-bio-box {
-    margin: 0 30px 10px 30px;
-    padding: 10px;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
-    white-space: pre-wrap;
-    width: 100%;
 }
 
 /* 投稿の編集・削除ボタン */
