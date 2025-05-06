@@ -259,6 +259,9 @@ return [
         'updated_at' => '更新日',
         'username' => 'ユーザー名',
         'year' => '年',
+        //追記
+        'new_password' => 'パスワード',
+        'new_password_confirmation' => 'パスワード確認',
     ],
 
 ];
